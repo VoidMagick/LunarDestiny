@@ -16,7 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Lunar Destiny"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=600
+window/size/height=1024
+
+[editor_plugins]
+
+enabled=PoolStringArray( "godot-sqlite" )
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
