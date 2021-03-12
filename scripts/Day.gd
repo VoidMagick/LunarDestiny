@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 export var dayNum = 0
 export var dayRelative = 0
@@ -34,9 +34,22 @@ var astroColor= [
 ]
 
 func _ready():
-	pass
-
+	var Calendar = get_tree().get_root().find_node("Calendar",true,false)
+	Calendar.connect("updateDay",self,"_update")
+	
 func _process(_delta):
+#	_draw_day()
+	pass
+	
+func _physics_process(delta):
+#	_draw_day()
+	pass
+	
+func _update():
+	_draw_day()
+	pass
+	
+func _draw_day():
 	
 	var dayOffset = dayRelative
 	
@@ -47,43 +60,42 @@ func _process(_delta):
 	$Debug/LDAY.text = _get_day_day(dayOffset)
 	$Debug/LRDAY.text = str(dayRelative)
 	
-	var month_int = int(month)-1
-	color = monthColor[month_int]
-	
 	var moonPercent = _get_moon_percent(dayOffset)
 	$Debug/LMOON.text = str(moonPercent)
 	
 	var c = moonPercent
-	color = Color(c,c,c)
+	$Background.color = Color(c,c,c)
 	
 	var astroSign = _get_astro_sign(dayOffset)
-	color = astroColor[astroSign-1]
+	$Background.color = astroColor[astroSign-1]
+	
+	var month_int = int(month)-1
+	$Background.color = monthColor[month_int]
 	
 	if dayOffset == 0:
-		color = Color(1,0,0)
-	
+		$Panel.self_modulate = Color(1,1,1,0.8)
+
 func _get_day_year(offset):
 	var unixTime = OS.get_unix_time()
 	var timeZone = OS.get_time_zone_info()
 	unixTime = unixTime + offset * 60 * 60 * 24 + timeZone.bias * 60
 	var dayDict = OS.get_datetime_from_unix_time(unixTime)
 	return(str(dayDict.year))
-	
+
 func _get_day_month(offset):
 	var unixTime = OS.get_unix_time()
 	var timeZone = OS.get_time_zone_info()
 	unixTime = unixTime + offset * 60 * 60 * 24 + timeZone.bias * 60
 	var dayDict = OS.get_datetime_from_unix_time(unixTime)
 	return(str(dayDict.month))
-	
+
 func _get_day_day(offset):
 	var unixTime = OS.get_unix_time()
 	var timeZone = OS.get_time_zone_info()
 	unixTime = unixTime + offset * 60 * 60 * 24 + timeZone.bias * 60
 	var dayDict = OS.get_datetime_from_unix_time(unixTime)
 	return(str(dayDict.day))
-	
-	
+
 func _get_moon_percent(offset):
 	
 	## Duration of lunar cycle in days
@@ -105,7 +117,7 @@ func _get_moon_percent(offset):
 	var moonPercent = -0.5*cos((2*PI*elapsedTime)/lunarSeconds)+0.5
 	
 	return moonPercent
-	
+
 func _get_astro_sign(offset):
 	
 	var unixTime = OS.get_unix_time()

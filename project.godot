@@ -32,6 +32,10 @@ enabled=PoolStringArray( "godot-sqlite" )
 
 pointing/emulate_touch_from_mouse=true
 
+[physics]
+
+common/physics_fps=1
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

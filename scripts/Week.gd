@@ -13,8 +13,12 @@ func _ready():
 	pass
 	
 func _process(delta):	
+#	_run_week()
+	pass
+	
+func _physics_process(delta):
 	_run_week()
-
+	
 func _run_week():
 	
 	## Initialize day values
@@ -27,7 +31,6 @@ func _run_week():
 	$Day6.dayRelative = 6
 	
 	## Adjust day values per week
-
 	$Day0.dayRelative = $Day0.dayRelative + 7 * weekNum
 	$Day1.dayRelative = $Day1.dayRelative + 7 * weekNum
 	$Day2.dayRelative = $Day2.dayRelative + 7 * weekNum
@@ -39,9 +42,6 @@ func _run_week():
 	var currentDay = OS.get_date()
 	
 	var dayArray = [$Day0, $Day1, $Day2, $Day3, $Day4, $Day5, $Day6]
-	
-	if weekNum == 0:
-		dayArray[currentDay.weekday].color = Red
 	
 	for Day in dayArray:
 		Day.dayRelative = Day.dayRelative - currentDay.weekday

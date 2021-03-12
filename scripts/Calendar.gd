@@ -1,9 +1,11 @@
-extends Panel
+extends Control
 
 var Week = preload("res://Week.tscn")
 
-var weekNum = 20
+var weekNum = 50
 var weekSpacing = 85
+
+signal updateDay
 
 func _ready():
 	
@@ -14,3 +16,6 @@ func _ready():
 		week.weekNum = i;
 	
 	pass
+	
+func _on_Timer_timeout():
+	emit_signal("updateDay")

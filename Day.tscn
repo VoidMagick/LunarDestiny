@@ -2,20 +2,39 @@
 
 [ext_resource path="res://scripts/Day.gd" type="Script" id=1]
 
-[node name="Day" type="ColorRect"]
-margin_right = 80.0
-margin_bottom = 80.0
+[node name="Day" type="Control"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.160784, 0.160784, 0.160784, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 85.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.654902, 0, 0.709804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 82.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Debug" type="Control" parent="."]
-margin_right = 80.0
-margin_bottom = 80.0
+margin_right = 84.0
+margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -45,10 +64,10 @@ __meta__ = {
 }
 
 [node name="LDAY" type="Label" parent="Debug"]
-margin_left = 1.72354
-margin_top = 3.09135
-margin_right = 40.7236
-margin_bottom = 18.0914
+margin_left = 4.40087
+margin_top = 4.19378
+margin_right = 43.4009
+margin_bottom = 19.1938
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "DAY"
