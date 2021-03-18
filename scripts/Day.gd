@@ -41,7 +41,7 @@ func _process(_delta):
 #	_draw_day()
 	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 #	_draw_day()
 	pass
 	

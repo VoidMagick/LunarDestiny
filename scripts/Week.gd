@@ -12,11 +12,11 @@ var weekSpread = PoolIntArray(range(0,7))
 func _ready():
 	pass
 	
-func _process(delta):	
+func _process(_delta):	
 #	_run_week()
 	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	_run_week()
 	
 func _run_week():

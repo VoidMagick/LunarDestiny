@@ -8,9 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenDrag",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventMultiScreenDrag.gd"
+}, {
+"base": "Reference",
+"class": "InputEventScreenPinch",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventScreenPinch.gd"
+}, {
+"base": "Reference",
+"class": "InputEventScreenTwist",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventScreenTwist.gd"
+}, {
+"base": "Reference",
+"class": "InputEventSingleScreenDrag",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventSingleScreenDrag.gd"
+}, {
+"base": "Reference",
+"class": "InputEventSingleScreenTap",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventSingleScreenTap.gd"
+}, {
+"base": "Reference",
+"class": "InputEventSingleScreenTouch",
+"language": "GDScript",
+"path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventSingleScreenTouch.gd"
+} ]
 _global_script_class_icons={
-
+"InputEventMultiScreenDrag": "",
+"InputEventScreenPinch": "",
+"InputEventScreenTwist": "",
+"InputEventSingleScreenDrag": "",
+"InputEventSingleScreenTap": "",
+"InputEventSingleScreenTouch": ""
 }
 
 [application]
@@ -19,10 +54,15 @@ config/name="Lunar Destiny"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+InputManager="*res://GDTIM-v1_1_0/InputManager.gd"
+
 [display]
 
-window/size/width=600
-window/size/height=1024
+window/size/width=750
+window/size/height=1334
+window/size/resizable=false
 
 [editor_plugins]
 
