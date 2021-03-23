@@ -40,6 +40,7 @@ func _zoom_camera(distance):
 	elif newZoom.x >= MAX_ZOOM:
 		newZoom = Vector2(MAX_ZOOM,MAX_ZOOM)
 	set_zoom(newZoom)
+	self.scale = newZoom
 
 func _gesture_move(event):
 	position -= Vector2(0,(event.relative*zoom).rotated(rotation).y)

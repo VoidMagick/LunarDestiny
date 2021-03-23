@@ -14,17 +14,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventMultiScreenDrag.gd"
 }, {
-"base": "Reference",
+"base": "InputEventAction",
 "class": "InputEventScreenPinch",
 "language": "GDScript",
 "path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventScreenPinch.gd"
 }, {
-"base": "Reference",
+"base": "InputEventAction",
 "class": "InputEventScreenTwist",
 "language": "GDScript",
 "path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventScreenTwist.gd"
 }, {
-"base": "Reference",
+"base": "InputEventAction",
 "class": "InputEventSingleScreenDrag",
 "language": "GDScript",
 "path": "res://GDTIM-v1_1_0/CustomInputEvents/InputEventSingleScreenDrag.gd"
@@ -62,7 +62,6 @@ InputManager="*res://GDTIM-v1_1_0/InputManager.gd"
 
 window/size/width=750
 window/size/height=1334
-window/size/resizable=false
 
 [editor_plugins]
 
